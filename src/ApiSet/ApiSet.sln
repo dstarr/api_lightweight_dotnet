@@ -6,8 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApi", "TodoApi\TodoApi.csproj", "{4EBCF5CB-7C80-4C85-A3DC-99C7FBCC3E0D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApiTests", "TodoApiTests\TodoApiTests.csproj", "{9F94C6F4-E508-4B9C-926D-853737AED6F3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EBCF5CB-7C80-4C85-A3DC-99C7FBCC3E0D} = {4EBCF5CB-7C80-4C85-A3DC-99C7FBCC3E0D}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiHost", "ApiHost\ApiHost.csproj", "{AF11DB2F-8987-4F89-8593-CB46F062A246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiHost", "ApiHost\ApiHost.csproj", "{AF11DB2F-8987-4F89-8593-CB46F062A246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

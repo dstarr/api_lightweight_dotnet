@@ -6,7 +6,7 @@ using TodoApi.Models;
 
 namespace TodoApi
 {
-    public class TodoApplication
+    public class TodoApiApplication
     {
         public async Task<IResult> GetAllTodos(TodoDb db)
         {
