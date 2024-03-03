@@ -1,9 +1,8 @@
-﻿using TodoApi.TodoApi.Models;
-
-namespace TodoApi.TodoApi.Data
+﻿namespace TodoApi.Data
 {
     using Microsoft.EntityFrameworkCore;
-    
+    using TodoApi.Models;
+
     public class TodoDb : DbContext
     {
         public TodoDb(DbContextOptions<TodoDb> options)
