@@ -12,4 +12,5 @@ Content-Type: application/json
 }
 
 ### Test GET all autos
-GET {{AutoApi_HostAddress}}}
+GET {{AutoApi_HostAddress}}
+Accept: application/json

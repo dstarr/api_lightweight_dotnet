@@ -3,6 +3,7 @@ using AutoApi.Dtos;
 using AutoApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace AutoApi
 {
@@ -10,7 +11,9 @@ namespace AutoApi
     {
         public async Task<IResult> GetAllAutos(AutoDb db)
         {
-            return TypedResults.Ok(await db.Autos.Select(x => new AutoDto(x)).ToArrayAsync());
+            var autos = await db.Autos.Select(x => new AutoDto(x)).ToArrayAsync();
+
+            return TypedResults.Ok(autos);
         }
 
         public async Task<IResult> CreateAuto(AutoDto autoDto, AutoDb db)
@@ -22,10 +25,12 @@ namespace AutoApi
                 Year = autoDto.Year
             };
 
-            db.Autos.Add(autoModel);
+            var model = db.Autos.Add(autoModel);
             await db.SaveChangesAsync();
 
-            var newAutoDto = new AutoDto(autoModel);
+            Console.WriteLine();
+
+            var newAutoDto = new AutoDto(model.Entity);
 
             return TypedResults.Created($"/{newAutoDto.Id}", newAutoDto);
         }
