@@ -1,3 +1,5 @@
+using AutoApi;
+using AutoApi.Data;
 using Microsoft.EntityFrameworkCore;
 using TodoApi;
 using TodoApi.Data;
@@ -8,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
+builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoListDb"));
+builder.Services.AddDbContext<AutoDb>(opt => opt.UseInMemoryDatabase("AutoDb"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
@@ -23,6 +26,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapGroup("/todo").MapTodoRoutes();
+app.MapGroup("/autos").MapAutoRoutes();
 
 
 app.Run();

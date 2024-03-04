@@ -1,0 +1,15 @@
+@AutoApi_HostAddress = http://localhost:5131/autos
+
+
+### Test POST create auto
+POST {{AutoApi_HostAddress}}
+Content-Type: application/json
+
+{
+"make": "Toyota",
+  "model": "Corolla",
+  "year": 2022
+}
+
+### Test GET all autos
+GET {{AutoApi_HostAddress}}}
